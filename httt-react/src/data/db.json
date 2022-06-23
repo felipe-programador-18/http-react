@@ -1,0 +1,19 @@
+{
+   "products": [
+   {
+    "id":1,
+    "camisa":"nike",
+    "price": 59.30
+   },
+   {
+    "id":2,
+    "camisa":"nike-adidas",
+    "price": 521.30
+   },
+   {
+    "id":3,
+    "camisa":"nike-puma",
+    "price": 595.30
+    }
+   ]
+}
