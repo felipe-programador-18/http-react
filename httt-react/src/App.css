@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+
+.add-product{
+  border-top: 1px black solid;
+
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form input{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}

@@ -1,19 +1,99 @@
 {
-   "products": [
-   {
-    "id":1,
-    "camisa":"nike",
-    "price": 59.30
-   },
-   {
-    "id":2,
-    "camisa":"nike-adidas",
-    "price": 521.30
-   },
-   {
-    "id":3,
-    "camisa":"nike-puma",
-    "price": 595.30
+  "products": [
+    {
+      "id": 1,
+      "name": "nike",
+      "price": 59.3
+    },
+    {
+      "id": 2,
+      "name": "nike-adidas",
+      "price": 521.3
+    },
+    {
+      "id": 3,
+      "name": "nike-puma",
+      "price": 595.3
+    },
+    {
+      "name": "Felipe Martins Machapdo",
+      "price": "324324",
+      "id": 4
+    },
+    {
+      "name": "fasdf",
+      "price": "34324",
+      "id": 5
+    },
+    {
+      "name": "fasdf",
+      "price": "34324",
+      "id": 6
+    },
+    {
+      "name": "fasdf",
+      "price": "34324",
+      "id": 7
+    },
+    {
+      "name": "fasdf",
+      "price": "34324",
+      "id": 8
+    },
+    {
+      "name": "fasdf",
+      "price": "34324",
+      "id": 9
+    },
+    {
+      "name": "fasdf",
+      "price": "34324",
+      "id": 10
+    },
+    {
+      "name": "fasdf",
+      "price": "34324",
+      "id": 11
+    },
+    {
+      "name": "fasdf",
+      "price": "34324",
+      "id": 12
+    },
+    {
+      "name": "fasdf",
+      "price": "34324",
+      "id": 13
+    },
+    {
+      "name": "fasdf",
+      "price": "34324",
+      "id": 14
+    },
+    {
+      "name": "fasdf",
+      "price": "34324",
+      "id": 15
+    },
+    {
+      "name": "fasdf",
+      "price": "34324",
+      "id": 16
+    },
+    {
+      "name": "fasdf",
+      "price": "34324",
+      "id": 17
+    },
+    {
+      "name": "fasdf",
+      "price": "34324",
+      "id": 18
+    },
+    {
+      "name": "fasdf",
+      "price": "34324",
+      "id": 19
     }
-   ]
+  ]
 }
