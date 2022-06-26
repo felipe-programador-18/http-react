@@ -36,7 +36,7 @@ const url ='http://localhost:3000/products'
       body: JSON.stringify(product),
     })
    // const data = await res.json()
-    //Setproducts(data)
+    ////Setproducts(data)
  }
 
 
