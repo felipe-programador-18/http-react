@@ -57,8 +57,11 @@ const url ='http://localhost:3000/products'
     <div className="App">
      <h1>list of products!!</h1>
      {loading && <p>carregando dados ....</p>}
-     { items &&  items.map((produts) => (<li key={produts.id} > {produts.name} - R$:{produts.price} </li>))}
-    
+     {!loading && (  <ul>
+      { items &&  items.map((produts) => (<li key={produts.id} > {produts.name} - R$:{produts.price} </li>))}
+
+     </ul>  ) }
+     
     
       <div className='add-products' >
         <h1>Adding products !!! </h1>
@@ -72,7 +75,9 @@ const url ='http://localhost:3000/products'
             Price:
            <input type='text'  value={price} name='price' onChange={(e)=> Setprice(e.target.value)} />
           </label>
-          <input type='submit'  value='criar produto'/>
+          { loading && <input type='submit' disabled  value='aguardar'/> }
+          { !loading && <input type='submit'  value='criar produto'/>  }
+         
 
         </form>
       </div>
