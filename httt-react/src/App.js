@@ -10,7 +10,7 @@ const url ='http://localhost:3000/products'
   const [name, Setnome] = useState('')
     
   //4 works with hooks personalites
-  const { data:items, httpConfig } = useFecthing(url)
+  const { data:items, httpConfig, loading } = useFecthing(url)
 
 
   //1 rescuers data!!
@@ -56,6 +56,7 @@ const url ='http://localhost:3000/products'
   return ( 
     <div className="App">
      <h1>list of products!!</h1>
+     {loading && <p>carregando dados ....</p>}
      { items &&  items.map((produts) => (<li key={produts.id} > {produts.name} - R$:{produts.price} </li>))}
     
     
