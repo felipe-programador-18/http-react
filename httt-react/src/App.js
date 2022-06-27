@@ -45,7 +45,7 @@ const url ='http://localhost:3000/products'
     //Setproducts((prevProducts) => [...prevProducts, AddingProduct] )
     
     //5  refactor code and 
-    httpConfig(products,"POST")
+    httpConfig(product,"POST")
 
     Setprice('')
     Setnome('')
@@ -69,7 +69,7 @@ const url ='http://localhost:3000/products'
           </label>
           <label>
             Price:
-           <input type='text'  value={price} name='name' onChange={(e)=> Setprice(e.target.value)} />
+           <input type='text'  value={price} name='price' onChange={(e)=> Setprice(e.target.value)} />
           </label>
           <input type='submit'  value='criar produto'/>
 
