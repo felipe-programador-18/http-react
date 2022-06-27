@@ -6,11 +6,14 @@ import React,{useState, useEffect} from 'react'
 export const useFecthing = (url) => {
    const [data, setDate] = useState(null)
     
-   //refactor post
+   //5 refactor post
    const [setting, setSetting] = useState(null)
    const [method, setMethod] = useState(null)
    const [callfec, setCallset] = useState(false)  
   
+   // 6-LOADING
+   const [loading, setLoading] = useState(false)
+
    const httpConfig =  (data, method) => {
     if(method === 'POST'){
         setSetting({
@@ -26,9 +29,13 @@ export const useFecthing = (url) => {
    
    useEffect(() => {
     const FetchingDate = async () => {
+      //6 adding kind of loading here
+      setLoading(true)
       const res = await fetch(url)
       const json = await res.json()
+      
       setDate(json)
+      setLoading(false)
     }; 
     FetchingDate() 
    },[url, callfec]);
@@ -47,6 +54,6 @@ export const useFecthing = (url) => {
      httpRequest()
      } 
     },[setting, method, url])
-    return { data, httpConfig }
+    return { data, httpConfig, loading }
 }
 
