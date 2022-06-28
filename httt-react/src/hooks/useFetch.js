@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react'
+import {useState, useEffect} from 'react'
 
 //create hook personaties!!
 // this is one kind to rearrange code is very interesting!!
@@ -9,21 +9,37 @@ export const useFecthing = (url) => {
    //5 refactor post
    const [setting, setSetting] = useState(null)
    const [method, setMethod] = useState(null)
-   const [callfec, setCallset] = useState(false)  
+   const [callfec, setCallfet] = useState(false)  
   
    // 6-LOADING
    const [loading, setLoading] = useState(false)
+
+   //7- treat error
+   const [error, setError] = useState(null)
+   
+   //8 deleted id
+   const[itemid, setItemid] = useState(null)
+ 
 
    const httpConfig =  (data, method) => {
     if(method === 'POST'){
         setSetting({
           method,
           headers:{
-            "Content-type":"application/json"
+            "Content-Type":"application/json"
           },
           body: JSON.stringify(data)
         })
-        setMethod(method)
+        setMethod("POST")
+     }else if(method === 'DELETE'){
+      setSetting({
+        method,
+        headers:{
+          "Content-Type":"application/json"
+        },
+      })
+      setMethod('DELETE')
+      setItemid(data)
      }
     }
    
@@ -31,29 +47,44 @@ export const useFecthing = (url) => {
     const FetchingDate = async () => {
       //6 adding kind of loading here
       setLoading(true)
-      const res = await fetch(url)
-      const json = await res.json()
-      
-      setDate(json)
+      try {
+       const res = await fetch(url)
+       const json = await res.json()
+       setDate(json)
+       setMethod(null)
+       setError(null)
+      } catch (error) {
+       console.log(error.message)
+       setError("Have error here!!!")     
+      }
       setLoading(false)
     }; 
     FetchingDate() 
    },[url, callfec]);
 
    //5 refactor  post
+
    useEffect(() => {
-    if(method === 'POST'){
+    if(method === "POST"){
        const httpRequest = async () => {
         if(method === "POST"){
-            let fecthOptions = [url, setting]
-            const res = await fetch(...fecthOptions)
-            const json = await res.json()
-            setCallset(json)
+          setLoading(true)
+          let fecthOptions = [url, setting]
+          const res = await fetch(...fecthOptions)
+          const json = await res.json();
+          setCallfet(json)
+        }else if(method === "DELETE"){
+          const deleteUrl = `${url}/${itemid}`
+          const res = await fetch(deleteUrl,setting)
+          const json = await res.json();
+          setCallfet(json) 
          }
-        }
+        
+        };
      httpRequest()
-     } 
-    },[setting, method, url])
-    return { data, httpConfig, loading }
+     }
+    },[setting])
+    console.log(setting)
+    return { data, httpConfig, loading, error }
 }
 
