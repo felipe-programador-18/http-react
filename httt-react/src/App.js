@@ -1,16 +1,16 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState} from 'react'
 import './App.css';
 import { useFecthing } from './hooks/useFetch'
 
 const url ='http://localhost:3000/products'
 
  function App() {
-  const [products, Setproducts] = useState([])
+  //const [products, Setproducts] = useState([])
   const [price, Setprice] = useState('')
   const [name, Setnome] = useState('')
     
   //4 works with hooks personalites
-  const { data:items, httpConfig, loading } = useFecthing(url)
+  const { data:items, httpConfig, loading, error } = useFecthing(url)
 
 
   //1 rescuers data!!
@@ -40,6 +40,7 @@ const url ='http://localhost:3000/products'
       //},
       //body: JSON.stringify(product),
     //})
+
    // 3 create another functions that handle with loaded dynamic
     //const AddingProduct =  await res.json()
     //Setproducts((prevProducts) => [...prevProducts, AddingProduct] )
@@ -50,15 +51,22 @@ const url ='http://localhost:3000/products'
     Setprice('')
     Setnome('')
  }
-
+ const handRemove = (id) => {
+  httpConfig(id, "DELETE")
+ }
 
  
   return ( 
     <div className="App">
      <h1>list of products!!</h1>
      {loading && <p>carregando dados ....</p>}
+     {error && <p>{error}</p>}
+
      {!loading && (  <ul>
-      { items &&  items.map((produts) => (<li key={produts.id} > {produts.name} - R$:{produts.price} </li>))}
+      { items &&  items.map((produts) => 
+      (<li key={produts.id} > {produts.name} - R$:{produts.price} 
+       <button onClick={() => handRemove(produts.id)} >Excluir</button>
+      </li>))}
 
      </ul>  ) }
      
