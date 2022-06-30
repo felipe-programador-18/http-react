@@ -12,19 +12,6 @@ const url ='http://localhost:3000/products'
   //4 works with hooks personalites
   const { data:items, httpConfig, loading, error } = useFecthing(url)
 
-
-  //1 rescuers data!!
- // useEffect( () => {
-   //  const FetchingDate = async() =>{
-    // const res = await fetch(url)
-    // const data = await res.json()
-    // Setproducts(data)
-   // }
-   // FetchingDate()
-  //}, []);
-  //console.log(products)
- //}
-
  //2-adding products!!
  const handSubmi = async(e) => {
     e.preventDefault()
@@ -32,22 +19,7 @@ const url ='http://localhost:3000/products'
       name, 
       price
     };
-    //headers are requested
-    //const res = await fetch(url, {
-     // method:"POST",
-      //headers:{
-       //"Content-Type":'application/json'
-      //},
-      //body: JSON.stringify(product),
-    //})
-
-   // 3 create another functions that handle with loaded dynamic
-    //const AddingProduct =  await res.json()
-    //Setproducts((prevProducts) => [...prevProducts, AddingProduct] )
-    
-    //5  refactor code and 
     httpConfig(product,"POST")
-
     Setprice('')
     Setnome('')
  }
