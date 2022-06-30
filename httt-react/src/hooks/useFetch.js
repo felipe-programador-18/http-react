@@ -15,7 +15,7 @@ export const useFecthing = (url) => {
    const [loading, setLoading] = useState(false)
 
    //7- treat error
-   const [error, setError] = useState(null)
+   const [error, setError] = useState(false)
    
    //8 deleted id
    const[itemid, setItemid] = useState(null)
@@ -24,7 +24,7 @@ export const useFecthing = (url) => {
    const httpConfig =  (data, method) => {
     if(method === 'POST'){
         setSetting({
-          method,
+          method:"POST",
           headers:{
             "Content-Type":"application/json"
           },
@@ -33,7 +33,7 @@ export const useFecthing = (url) => {
         setMethod("POST")
      }else if(method === 'DELETE'){
       setSetting({
-        method,
+        method:"DELETE",
         headers:{
           "Content-Type":"application/json"
         },
@@ -63,9 +63,8 @@ export const useFecthing = (url) => {
    },[url, callfec]);
 
    //5 refactor  post
-
    useEffect(() => {
-    if(method === "POST"){
+   
        const httpRequest = async () => {
         if(method === "POST"){
           setLoading(true)
@@ -82,7 +81,7 @@ export const useFecthing = (url) => {
         
         };
      httpRequest()
-     }
+     
     },[setting])
     console.log(setting)
     return { data, httpConfig, loading, error }
